@@ -1,8 +1,9 @@
 'use client'
 import { useState } from "react";
-import logo from"@/images/logo.png";
+import logo from "@/images/logo.png";
 import Link from "next/link";
 import Image from "next/image";
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 const nevBarLink = [
     <li key={1} ><Link href="#">Browse Jobs</Link></li>,
     <li key={2} ><Link href="#">Company</Link></li>,
@@ -13,53 +14,38 @@ const nevBarLink = [
 const Navber = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
-        <div className="container mx-auto">
-            <nav className="sticky top-0 z-40 w-full border-b border-separator backdrop-blur-lg">
+        <nav className="sticky top-0 pt-3 z-50 w-full border-b border-white/10 bg-black/70 backdrop-blur-lg">
+            <div className="container mx-auto">
                 <header className="flex h-16 items-center justify-between px-6">
                     <div className="flex items-center gap-4">
-                        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
-                            <span className="sr-only">Menu</span>
-                            <svg
-                                className="h-6 w-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                {isMenuOpen ? (
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M6 18L18 6M6 6l12 12"
-                                    />
-                                ) : (
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M4 6h16M4 12h16M4 18h16"
-                                    />
-                                )}
-                            </svg>
+                        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu" >
+                            {isMenuOpen ? (
+                                <HiOutlineX className="h-6 w-6" />
+                            ) : (
+                                <HiOutlineMenu className="h-6 w-6" />
+                            )}
                         </button>
-                        <div>
-                            <Image src={logo} height={50} width={150} alt="logo"/>
-                        </div>
+                        <Image src={logo} height={50} width={150} alt="logo" />
                     </div>
-                    <ul className="hidden items-center gap-4 md:flex">
-                        {nevBarLink}
 
+                    <ul className="hidden md:flex items-center gap-6 bg-[#282626] border border-white/5 p-2 px-4 rounded-xl shadow-lg">
+                        <li><Link href="#">Browse Jobs</Link></li>
+                        <li><Link href="#">Company</Link></li>
+                        <li><Link href="#">Pricing</Link></li>
+                        <div className="w-px h-4 bg-white mx-1"></div>
+                        <li><Link href="#" className="text-[#8B5CF6]">Sign In</Link></li>
+                        <li className="bg-white text-black p-3 rounded-xl "><Link href="#">Get Started</Link></li>
                     </ul>
                 </header>
                 {isMenuOpen && (
-                    <div className="border-t border-separator md:hidden">
+                    <div className="border-t border-white/10 md:hidden">
                         <ul className="flex flex-col gap-2 p-4">
-                           {nevBarLink}
+                            {nevBarLink}
                         </ul>
                     </div>
                 )}
-            </nav>
-        </div>
+            </div>
+        </nav>
     );
 };
 
