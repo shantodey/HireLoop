@@ -28,26 +28,24 @@ const Hero = () => {
         <h1 className="mb-5 max-w-4xl text-center text-4xl font-bold tracking-tight text-white leading-[1.05] sm:mb-6 sm:text-5xl md:text-6xl lg:text-[64px]">
           Find Your Dream Job Today
         </h1>
-
         <p className="mb-8 max-w-2xl text-center text-sm leading-relaxed text-gray-400 sm:mb-10 sm:text-base md:text-lg">
           HireLoop connects top talent with world-class companies. Browse thousands of curated opportunities and land your next role faster.
         </p>
-
-        <div className="w-full max-w-4xl rounded-[28px] border border-white/10 bg-[#131313]/90 p-2 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md sm:rounded-full">
+        <div className="w-full max-w-4xl ss rounded-xl border border-white/40 bg-[#131313]/90 p-2 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md">
           <div className="grid grid-cols-1 gap-2 md:grid-cols-[1fr_1px_1fr_auto] md:items-center md:gap-0">
             <div className="flex w-full items-center gap-3 rounded-2xl bg-white/2 px-4 py-3 md:rounded-none md:bg-transparent md:px-4 md:py-2">
               <FiSearch className="shrink-0 text-lg text-white sm:text-xl" />
               <input type="text" placeholder="Job title, skill or company" className="w-full bg-transparent text-sm text-white outline-none placeholder:text-gray-500 sm:text-base" />
             </div>
 
-            <div className="hidden h-6 w-px bg-white/10 md:block"></div>
+            <div className="hidden h-6 w-px bg-white/50 md:block"></div>
 
             <div className="flex w-full items-center gap-3 rounded-2xl bg-white/2 px-4 py-3 md:rounded-none md:bg-transparent md:px-4 md:py-2">
               <FiMapPin className="shrink-0 text-lg text-white sm:text-xl" />
               <input type="text" placeholder="Location or Remote" className="w-full bg-transparent text-sm text-white outline-none placeholder:text-gray-500 sm:text-base" />
             </div>
 
-            <button className="mt-1 flex h-12 w-full items-center justify-center rounded-2xl bg-[#5932EA] transition-colors hover:bg-[#4a26cc] md:mt-0 md:ml-2 md:h-14 md:w-14 md:rounded-full">
+            <button className="mt-1 flex h-12 w-full items-center justify-center rounded-xl bg-[#5932EA] transition-colors hover:bg-[#4a26cc] md:mt-0 md:ml-2 md:h-14 md:w-14">
               <FiSearch className="text-lg text-white sm:text-xl" />
             </button>
           </div>

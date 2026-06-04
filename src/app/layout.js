@@ -24,8 +24,8 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <Navber/>
         {children}
+       
         </body>
-        <Footer/>
     </html>
   );
 }
