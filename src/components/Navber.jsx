@@ -19,7 +19,7 @@ const nevBarLinkPc = [
     <li  key={3}><Link href="#">Pricing</Link></li>,
     <div key={4} className="w-px h-7 bg-white mx-1"></div>,
     <li  key={5}><Link href="/auth/login" className="text-[#8B5CF6]">Sign In</Link></li>,
-    <li  key={6} className="bg-white text-black p-3 rounded-xl "><Link href="#">Get Started</Link></li>,
+    <li  key={6} className="bg-white text-black p-3 rounded-xl "><Link href="/dashboard/recruiter">Get Started</Link></li>,
 ];
 const Navber = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

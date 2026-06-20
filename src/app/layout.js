@@ -2,6 +2,7 @@ import {Manrope } from "next/font/google";
 import "./globals.css";
 import Navber from "@/components/Navber";
 import Footer from "@/components/Footer";
+import { ToastContainer } from "react-toastify";
 
 const manRope= Manrope({
     variable: "--font-man-rope",
@@ -24,7 +25,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <Navber/>
         {children}
-       
+        <ToastContainer/>
         </body>
     </html>
   );
