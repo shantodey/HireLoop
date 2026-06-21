@@ -5,7 +5,7 @@ const ApplicationTable = () => {
     return (
         <Table>
             <Table.ScrollContainer>
-                <Table.Content aria-label="Team members" className="min-w-[600px]">
+                <Table.Content aria-label="Team members" className="min-w-150">
                     <Table.Header>
                         <Table.Column isRowHeader>Candidate Name</Table.Column>
                         <Table.Column>Role</Table.Column>

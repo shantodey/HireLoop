@@ -13,12 +13,29 @@ const sectionClass = 'rounded-2xl border border-zinc-800 bg-zinc-950 p-6';
 
 
 export default function PostJobPage() {
+    const defaultJobMeta = {
+        companyId: "company_123",
+        companyName: "Demo Company",
+        createdBy: "user_123",
+        status: "pending",
+        isApproved: false,
+    };
+
     const onSubmit = async (e) => {
-        e.preventDefault()
-        const formData = new FormData(e.currentTarget)
-        const destination = Object.fromEntries(formData.entries())
-        console.log(destination);
-        const res = await createJob(destination);
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const destination = Object.fromEntries(formData.entries());
+
+        const jobData = {
+            ...destination,
+            ...defaultJobMeta,
+            createdAt: new Date().toISOString(),
+        };
+
+        console.log(jobData);
+
+        const res = await createJob(jobData);
+
         if (res?.insertedId) {
             toast.success('Created new jobs successfully!', {
                 position: "top-center",
@@ -31,11 +48,11 @@ export default function PostJobPage() {
                 theme: "dark",
                 transition: Bounce,
             });
+
             e.target.reset();
-            redirect('/dashboard/recruiter/jobs')
-        }
-        else if (res?.error) {
-            toast.warn(' Something went wrong!', {
+            redirect('/dashboard/recruiter/jobs');
+        } else if (res?.error) {
+            toast.warn('Something went wrong!', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -47,7 +64,7 @@ export default function PostJobPage() {
                 transition: Bounce,
             });
         }
-    }
+    };
     return (
         <div className="min-h-screen bg-zinc-950 p-6">
             <div className="mx-auto max-w-6xl">
@@ -66,7 +83,7 @@ export default function PostJobPage() {
                                 <input name="jobTitle" type="text" placeholder="Frontend Developer" className={inputClass} />
                             </div>
                             <div>
-                                
+
                                 <Select name="jobCategory" className="w-full" placeholder="Select category" isRequired>
                                     <Label>Job Category</Label>
                                     <Select.Trigger className={inputClass}>
@@ -116,7 +133,7 @@ export default function PostJobPage() {
                             </div>
                         </div>
                     </section>
-        
+
                     <section className={sectionClass}>
                         <h2 className="mb-6 text-lg font-semibold text-white"> Compensation</h2>
                         <div className="grid gap-6 md:grid-cols-3">

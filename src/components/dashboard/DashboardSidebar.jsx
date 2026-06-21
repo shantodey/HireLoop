@@ -4,26 +4,27 @@ import { MdOutlineAppRegistration, MdOutlineDashboard } from "react-icons/md";
 import { PiBuildingOfficeFill } from "react-icons/pi";
 import { SlHandbag } from "react-icons/sl";
 import { GoSidebarCollapse } from "react-icons/go";
+import Link from "next/link";
 const DashboardSidebar = () => {
-    const navItems = [
-        { icon: MdOutlineDashboard, label: "Dashboard" },
-        { icon: PiBuildingOfficeFill, label: "My Company" },
-        { icon: SlHandbag, label: "Manage Jobs" },
-        { icon: MdOutlineAppRegistration, label: "Applications" },
-        { icon: FaUser, label: "Profile" },
-        { icon: FaCog, label: "Settings" },
-    ];
+   const navItems = [
+    { icon: MdOutlineDashboard, label: "Home", path: "/dashboard" },
+    { icon: SlHandbag, label: "Manage Jobs", path: "/dashboard/recruiter" },
+    { icon: SlHandbag, label: "Post Job", path: "/dashboard/recruiter/jobs/new" },
+    { icon: PiBuildingOfficeFill, label: "Company Profile", path: "/dashboard/recruiter/company" },
+    { icon: MdOutlineAppRegistration, label: "Massage", path: "/applications" },
+    { icon: FaUser, label: "Profile", path: "/profile" },
+    { icon: FaCog, label: "Settings", path: "/settings" },
+  ];
     const navContents =
         <nav className="flex flex-col gap-1">
             {navItems.map((item) => (
-                <button
-                    key={item.label}
+                <Link href={item.path} key={item.label}
                     className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-foreground transition-colors hover:bg-default"
                     type="button"
                 >
                     <item.icon className="size-5 text-muted" />
                     {item.label}
-                </button>
+                </Link>
             ))}
         </nav>;
     return (

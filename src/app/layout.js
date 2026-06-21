@@ -1,11 +1,10 @@
-import {Manrope } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import Navber from "@/components/Navber";
-import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 
-const manRope= Manrope({
-    variable: "--font-man-rope",
+const manRope = Manrope({
+  variable: "--font-man-rope",
   subsets: ["latin"],
 })
 
@@ -22,11 +21,11 @@ export default function RootLayout({ children }) {
       data-theme="dark"
       className={`${manRope.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Navber/>
+      <body>
+        <Navber />
         {children}
-        <ToastContainer/>
-        </body>
+        <ToastContainer />
+      </body>
     </html>
   );
 }
